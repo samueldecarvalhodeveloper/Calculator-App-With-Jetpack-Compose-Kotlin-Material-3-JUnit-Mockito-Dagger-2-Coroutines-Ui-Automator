@@ -1,7 +1,7 @@
 package com.example.calculatorapp.domains.calculator.infrastructure.anticorruption_layer
 
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.NOT_VALID_EXPRESSION_EXCEPTION_MESSAGE
-import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecificationsTest.Companion.isCalculationResultARationalNumber
+import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionRationalNumber
 import net.objecthunter.exp4j.ExpressionBuilder
 
 class ExpressionEvaluater {
@@ -12,7 +12,7 @@ class ExpressionEvaluater {
                     .build()
                     .evaluate()
 
-                return if (isCalculationResultARationalNumber(
+                return if (isCalculationExpressionRationalNumber(
                         evaluatedCalculationExpression
                     )
                 )

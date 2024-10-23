@@ -15,9 +15,9 @@ class CalculationExpressionRegister @Inject constructor(
 
     fun addCharacterToCalculationExpression(calculatorCharacters: CalculatorCharacters) {
         val currentCalculationExpression = calculationExpression.calculationExpression
-        val calculationResultWithNewCharacter =
+        val calculationExpressionWithNewCharacter =
             currentCalculationExpression + calculatorCharacters.value
 
-        calculationExpression.calculationExpression = calculationResultWithNewCharacter
+        calculationExpression.calculationExpression = calculationExpressionWithNewCharacter
     }
 }

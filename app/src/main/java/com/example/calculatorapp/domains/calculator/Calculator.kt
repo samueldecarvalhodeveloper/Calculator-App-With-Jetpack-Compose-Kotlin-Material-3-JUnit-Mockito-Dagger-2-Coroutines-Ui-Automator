@@ -1,6 +1,6 @@
 package com.example.calculatorapp.domains.calculator
 
-import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecificationsTest.Companion.isCalculationExpressionEmpty
+import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionEmpty
 import javax.inject.Inject
 import javax.inject.Singleton
 

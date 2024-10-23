@@ -13,7 +13,6 @@ import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.Test
 
-
 class CalculationExpressionActiveRecordDecoratorTest {
     companion object {
         private lateinit var calculationExpressionActiveRecordDecorator: CalculationExpressionActiveRecordDecorator

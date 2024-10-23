@@ -6,7 +6,6 @@ import com.example.calculatorapp.domains.calculator.CalculationExpression
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-
 class CalculationExpressionTest {
     @Test
     fun testIfClassRepresentsHowCalculationExpressionShouldBeUsedOnClient() {

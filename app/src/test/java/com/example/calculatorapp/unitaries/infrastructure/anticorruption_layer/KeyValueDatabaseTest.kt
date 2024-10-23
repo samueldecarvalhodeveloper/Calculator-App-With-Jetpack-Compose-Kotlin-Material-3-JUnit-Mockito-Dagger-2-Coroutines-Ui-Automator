@@ -13,7 +13,6 @@ import org.junit.Test
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.`when`
 
-
 class KeyValueDatabaseTest {
     @Test
     fun testIfBooleanValueIsStoredInDatabase() {

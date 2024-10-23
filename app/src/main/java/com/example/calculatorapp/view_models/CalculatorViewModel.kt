@@ -8,7 +8,7 @@ import com.example.calculatorapp.R
 import com.example.calculatorapp.calculation_expression_store.CalculationExpressionStore.Companion.setStoredCalculationExpression
 import com.example.calculatorapp.domains.calculator.Calculator
 import com.example.calculatorapp.domains.calculator.CalculatorCharacters
-import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecificationsTest.Companion.isCalculationExpressionNotValidExpressionExceptionMessage
+import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionNotValidExpressionExceptionMessage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

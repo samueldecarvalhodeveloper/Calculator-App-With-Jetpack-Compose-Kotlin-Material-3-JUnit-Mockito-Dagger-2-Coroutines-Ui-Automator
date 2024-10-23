@@ -3,18 +3,17 @@ package com.example.calculatorapp.unitaries.domains.calculator.infrastructure.sp
 import com.example.calculatorapp.constants.domains.CalculatorConstants
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.NUMBER_WITHOUT_REST
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.NUMBER_WITH_REST
-import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.*
-import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecificationsTest.Companion.isCalculationExpressionEmpty
-import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecificationsTest.Companion.isCalculationExpressionNotValidExpressionExceptionMessage
-import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecificationsTest.Companion.isCalculationResultARationalNumber
+import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionEmpty
+import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionNotValidExpressionExceptionMessage
+import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionRationalNumber
 import org.junit.Assert
 import org.junit.Test
 
 class CalculatorSpecificationsTest {
     @Test
-    fun testIfMethodIsCalculationResultARationalNumberReturnsTrueIfNumberIsAFloatingNumber() {
-        val rationalNumber: Boolean = isCalculationResultARationalNumber(NUMBER_WITH_REST)
-        val notRationalNumber: Boolean = isCalculationResultARationalNumber(NUMBER_WITHOUT_REST)
+    fun testIfMethodIsCalculationExpressionARationalNumberReturnsTrueIfNumberIsAFloatingNumber() {
+        val rationalNumber: Boolean = isCalculationExpressionRationalNumber(NUMBER_WITH_REST)
+        val notRationalNumber: Boolean = isCalculationExpressionRationalNumber(NUMBER_WITHOUT_REST)
 
         Assert.assertTrue(rationalNumber)
         Assert.assertFalse(notRationalNumber)

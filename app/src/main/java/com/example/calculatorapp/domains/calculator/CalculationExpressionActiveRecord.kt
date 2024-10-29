@@ -1,6 +1,5 @@
 package com.example.calculatorapp.domains.calculator
 
-import com.example.calculatorapp.constants.StringUtilitiesConstants.Companion.EMPTY_STRING
 import com.example.calculatorapp.domains.calculator.infrastructure.anticorruption_layer.ExpressionEvaluater.Companion.getEvaluatedCalculationExpression
 import com.example.calculatorapp.domains.calculator.infrastructure.formatters.CalculatorFormatter.Companion.getCalculationExpressionWithoutLastCharacter
 
@@ -24,7 +23,7 @@ open class CalculationExpressionActiveRecord(private val calculationExpressionRe
     }
 
     open fun turnCalculationExpressionEmpty() {
-        calculationExpressionRegister.setCalculationExpression(EMPTY_STRING)
+        calculationExpressionRegister.setCalculationExpression("")
     }
 
     open fun evaluateCalculationExpression() {

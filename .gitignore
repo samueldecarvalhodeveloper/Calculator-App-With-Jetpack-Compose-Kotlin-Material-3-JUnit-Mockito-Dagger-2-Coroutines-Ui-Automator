@@ -13,3 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+app/datastore/calculatorapp.preferences_pb

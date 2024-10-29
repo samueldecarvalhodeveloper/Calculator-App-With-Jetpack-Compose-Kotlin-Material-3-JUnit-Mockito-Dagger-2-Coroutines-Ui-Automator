@@ -8,7 +8,6 @@ import androidx.compose.ui.test.performClick
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.calculatorapp.R
 import com.example.calculatorapp.application.Application
-import com.example.calculatorapp.constants.StringUtilitiesConstants.Companion.EMPTY_STRING
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.SIMPLE_CALCULATION_EXPRESSION
 import com.example.calculatorapp.domains.calculator.CalculationExpression
 import com.example.calculatorapp.domains.calculator.CalculationExpressionActiveRecordDecorator
@@ -68,7 +67,7 @@ class Application {
         @JvmStatic
         @BeforeClass
         fun beforeAll() {
-            val calculationExpression = CalculationExpression(EMPTY_STRING)
+            val calculationExpression = CalculationExpression("")
             val calculationExpressionRegister = CalculationExpressionRegister(calculationExpression)
             val calculationExpressionActiveRecord =
                 CalculationExpressionActiveRecordDecorator(calculationExpressionRegister)

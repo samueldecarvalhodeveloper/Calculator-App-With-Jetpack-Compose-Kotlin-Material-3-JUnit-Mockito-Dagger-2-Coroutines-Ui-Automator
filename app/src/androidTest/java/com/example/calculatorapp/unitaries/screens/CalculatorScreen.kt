@@ -7,7 +7,6 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.calculatorapp.R
-import com.example.calculatorapp.constants.StringUtilitiesConstants.Companion.EMPTY_STRING
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.EVALUATED_SIMPLE_CALCULATION_EXPRESSION
 import com.example.calculatorapp.domains.calculator.CalculationExpression
 import com.example.calculatorapp.domains.calculator.CalculationExpressionActiveRecordDecorator
@@ -285,7 +284,7 @@ class CalculatorScreen {
                 calculationViewModel.getCalculationExpression(context)
 
             assertEquals(
-                EMPTY_STRING,
+                "",
                 calculationExpressionLiveData.value
             )
         }
@@ -337,7 +336,7 @@ class CalculatorScreen {
         @BeforeClass
         @JvmStatic
         fun beforeAll() {
-            val calculationExpression = CalculationExpression(EMPTY_STRING)
+            val calculationExpression = CalculationExpression("")
             val calculationExpressionRegister = CalculationExpressionRegister(calculationExpression)
             val calculationExpressionActiveRecord =
                 CalculationExpressionActiveRecordDecorator(calculationExpressionRegister)

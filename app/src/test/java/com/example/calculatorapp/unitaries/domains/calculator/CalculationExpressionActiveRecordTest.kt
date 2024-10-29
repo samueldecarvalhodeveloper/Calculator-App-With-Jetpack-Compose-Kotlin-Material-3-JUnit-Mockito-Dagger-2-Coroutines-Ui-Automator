@@ -1,6 +1,5 @@
 package com.example.calculatorapp.unitaries.domains.calculator
 
-import com.example.calculatorapp.constants.StringUtilitiesConstants.Companion.EMPTY_STRING
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.EVALUATED_SIMPLE_CALCULATION_EXPRESSION
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.SIMPLE_CALCULATION_EXPRESSION
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.SIMPLE_CALCULATION_EXPRESSION_WITHOUT_LAST_CHARACTER
@@ -21,7 +20,7 @@ class CalculationExpressionActiveRecordTest {
         @BeforeClass
         @JvmStatic
         fun beforeAll() {
-            val calculationExpression = CalculationExpression(EMPTY_STRING)
+            val calculationExpression = CalculationExpression("")
             calculationExpressionRegister = CalculationExpressionRegister(calculationExpression)
             calculationExpressionActiveRecord =
                 CalculationExpressionActiveRecord(calculationExpressionRegister)
@@ -31,7 +30,7 @@ class CalculationExpressionActiveRecordTest {
 
     @Before
     fun beforeEach() {
-        calculationExpressionRegister.setCalculationExpression(EMPTY_STRING)
+        calculationExpressionRegister.setCalculationExpression("")
     }
 
     @Test
@@ -39,7 +38,7 @@ class CalculationExpressionActiveRecordTest {
         val currentCalculationExpression =
             calculationExpressionActiveRecord.getCalculationExpression()
 
-        assertEquals(EMPTY_STRING, currentCalculationExpression)
+        assertEquals("", currentCalculationExpression)
     }
 
     @Test
@@ -81,7 +80,7 @@ class CalculationExpressionActiveRecordTest {
         val updatedCalculationExpression: String =
             calculationExpressionRegister.getCalculationExpression()
 
-        assertEquals(EMPTY_STRING, updatedCalculationExpression)
+        assertEquals("", updatedCalculationExpression)
     }
 
     @Test

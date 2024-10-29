@@ -1,7 +1,5 @@
 package com.example.calculatorapp.components
 
-import com.example.calculatorapp.constants.StringUtilitiesConstants.Companion.EMPTY_STRING
-import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.EVALUATED_SIMPLE_CALCULATION_EXPRESSION
 import com.example.calculatorapp.domains.calculator.CalculationExpression
 import com.example.calculatorapp.domains.calculator.CalculationExpressionActiveRecordDecorator
 import com.example.calculatorapp.domains.calculator.CalculationExpressionRegister
@@ -9,44 +7,80 @@ import com.example.calculatorapp.domains.calculator.Calculator
 import com.example.calculatorapp.domains.calculator.CalculatorCharacters
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.BeforeClass
 import org.junit.Test
 
 class CalculatorTest {
-    private lateinit var calculator: Calculator
+    companion object {
+        private lateinit var calculator: Calculator
+        private lateinit var calculationExpressionActiveRecord: CalculationExpressionActiveRecordDecorator
+
+        @BeforeClass
+        @JvmStatic
+        fun beforeAll() {
+            val calculationExpression = CalculationExpression("")
+            val calculationExpressionRegister =
+                CalculationExpressionRegister(calculationExpression)
+            calculationExpressionActiveRecord =
+                CalculationExpressionActiveRecordDecorator(calculationExpressionRegister)
+            calculator = Calculator(calculationExpressionActiveRecord)
+        }
+    }
 
     @Before
     fun beforeEach() {
-        val calculationExpression = CalculationExpression(EMPTY_STRING)
-        val calculationExpressionRegister = CalculationExpressionRegister(calculationExpression)
-        val calculationExpressionActiveRecord =
-            CalculationExpressionActiveRecordDecorator(calculationExpressionRegister)
-        calculator = Calculator(calculationExpressionActiveRecord)
+        calculationExpressionActiveRecord.turnCalculationExpressionEmpty()
     }
 
     @Test
-    fun testIfComponentHandlesDataInputAndOutputsScenario() {
-        val initialCalculationExpression = calculator.getCalculationExpression()
+    fun testIfCalculationExpressionIsGet() {
+        val currentCalculationExpression: String = calculationExpressionActiveRecord.getCalculationExpression()
 
-        assertEquals(EMPTY_STRING, initialCalculationExpression)
+        assertEquals("", currentCalculationExpression)
+    }
 
+    @Test
+    fun testIfCharacterIsAddedToCalculationExpression() {
         calculator.addCharacter(CalculatorCharacters.ONE)
-        calculator.addCharacter(CalculatorCharacters.ADDITION)
-        calculator.addCharacter(CalculatorCharacters.ONE)
+
+        val currentCalculationExpression: String = calculationExpressionActiveRecord.getCalculationExpression()
+
+        assertEquals(CalculatorCharacters.ONE.value, currentCalculationExpression)
+    }
+
+    @Test
+    fun testIfLastCharacterIsRemovedFromCalculationExpression() {
+        calculationExpressionActiveRecord.addCharacterToCalculationExpression(CalculatorCharacters.ONE)
+        calculationExpressionActiveRecord.addCharacterToCalculationExpression(CalculatorCharacters.ONE)
 
         calculator.backspace()
 
-        calculator.addCharacter(CalculatorCharacters.ONE)
+        val currentCalculationExpression: String = calculationExpressionActiveRecord.getCalculationExpression()
 
-        calculator.evaluate()
+        assertEquals(CalculatorCharacters.ONE.value, currentCalculationExpression)
+    }
 
-        val currentCalculationExpression = calculator.getCalculationExpression()
-
-        assertEquals(EVALUATED_SIMPLE_CALCULATION_EXPRESSION, currentCalculationExpression)
+    @Test
+    fun testIfCalculationExpressionIsCleaned() {
+        calculationExpressionActiveRecord.addCharacterToCalculationExpression(CalculatorCharacters.ONE)
 
         calculator.clean()
 
-        val finalCalculationExpression = calculator.getCalculationExpression()
+        val currentCalculationExpression: String = calculationExpressionActiveRecord.getCalculationExpression()
 
-        assertEquals(EMPTY_STRING, finalCalculationExpression)
+        assertEquals("", currentCalculationExpression)
+    }
+
+    @Test
+    fun testIfCalculationExpressionIsEvaluated() {
+        calculationExpressionActiveRecord.addCharacterToCalculationExpression(CalculatorCharacters.ONE)
+        calculationExpressionActiveRecord.addCharacterToCalculationExpression(CalculatorCharacters.ADDITION)
+        calculationExpressionActiveRecord.addCharacterToCalculationExpression(CalculatorCharacters.ONE)
+
+        calculator.evaluate()
+
+        val currentCalculationExpression: String = calculationExpressionActiveRecord.getCalculationExpression()
+
+        assertEquals(CalculatorCharacters.TWO.value, currentCalculationExpression)
     }
 }

@@ -1,6 +1,5 @@
 package com.example.calculatorapp.unitaries.domains.calculator
 
-import com.example.calculatorapp.constants.StringUtilitiesConstants.Companion.EMPTY_STRING
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.EVALUATED_SIMPLE_CALCULATION_EXPRESSION
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.NOT_VALID_EXPRESSION_EXCEPTION_MESSAGE
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.SIMPLE_CALCULATION_EXPRESSION
@@ -21,7 +20,7 @@ class CalculationExpressionActiveRecordDecoratorTest {
         @BeforeClass
         @JvmStatic
         fun beforeAll() {
-            val calculationExpression = CalculationExpression(EMPTY_STRING)
+            val calculationExpression = CalculationExpression("")
             calculationExpressionRegister = CalculationExpressionRegister(calculationExpression)
             calculationExpressionActiveRecordDecorator =
                 CalculationExpressionActiveRecordDecorator(calculationExpressionRegister)
@@ -30,7 +29,7 @@ class CalculationExpressionActiveRecordDecoratorTest {
 
     @Before
     fun beforeEach() {
-        calculationExpressionRegister.setCalculationExpression(EMPTY_STRING)
+        calculationExpressionRegister.setCalculationExpression("")
     }
 
     @Test
@@ -38,7 +37,7 @@ class CalculationExpressionActiveRecordDecoratorTest {
         val currentCalculationExpression =
             calculationExpressionActiveRecordDecorator.getCalculationExpression()
 
-        assertEquals(EMPTY_STRING, currentCalculationExpression)
+        assertEquals("", currentCalculationExpression)
     }
 
     @Test
@@ -54,7 +53,7 @@ class CalculationExpressionActiveRecordDecoratorTest {
         val currentCalculationExpression =
             calculationExpressionRegister.getCalculationExpression()
 
-        assertEquals(EMPTY_STRING, currentCalculationExpression)
+        assertEquals("", currentCalculationExpression)
 
         calculationExpressionActiveRecordDecorator.addCharacterToCalculationExpression(
             CalculatorCharacters.ONE
@@ -76,7 +75,7 @@ class CalculationExpressionActiveRecordDecoratorTest {
         val currentCalculationExpression =
             calculationExpressionRegister.getCalculationExpression()
 
-        assertEquals(EMPTY_STRING, currentCalculationExpression)
+        assertEquals("", currentCalculationExpression)
     }
 
     @Test
@@ -88,7 +87,7 @@ class CalculationExpressionActiveRecordDecoratorTest {
         val currentCalculationExpression =
             calculationExpressionRegister.getCalculationExpression()
 
-        assertEquals(EMPTY_STRING, currentCalculationExpression)
+        assertEquals("", currentCalculationExpression)
     }
 
     @Test

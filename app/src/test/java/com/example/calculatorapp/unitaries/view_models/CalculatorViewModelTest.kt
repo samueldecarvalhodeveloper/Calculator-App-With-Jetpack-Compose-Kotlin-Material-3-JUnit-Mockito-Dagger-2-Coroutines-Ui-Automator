@@ -2,7 +2,6 @@ package com.example.calculatorapp.unitaries.view_models
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.example.calculatorapp.constants.StringUtilitiesConstants.Companion.EMPTY_STRING
 import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion.EVALUATED_SIMPLE_CALCULATION_EXPRESSION
 import com.example.calculatorapp.domains.calculator.CalculatorCharacters
 import com.example.calculatorapp.view_models.CalculatorViewModel
@@ -22,14 +21,14 @@ class CalculatorViewModelTest {
         `when`(calculatorViewModel.getCalculationExpression(context)).thenReturn(
             calculationExpression
         )
-        `when`(calculationExpression.value).thenReturn(EMPTY_STRING)
+        `when`(calculationExpression.value).thenReturn("")
     }
 
     @Test
     fun testIfMethodGetCalculationExpressionReturnsCalculationExpressionLiveData() {
         val calculationExpressionLiveData = calculatorViewModel.getCalculationExpression(context)
 
-        assertEquals(EMPTY_STRING, calculationExpressionLiveData.value)
+        assertEquals("", calculationExpressionLiveData.value)
     }
 
     @Test
@@ -59,7 +58,7 @@ class CalculatorViewModelTest {
 
     @Test
     fun testIfMethodCleanTurnsCalculationExpressionEmpty() {
-        `when`(calculationExpression.value).thenReturn(EMPTY_STRING)
+        `when`(calculationExpression.value).thenReturn("")
 
         calculatorViewModel.addCharacter(CalculatorCharacters.ONE, context)
 
@@ -67,7 +66,7 @@ class CalculatorViewModelTest {
 
         val calculationExpressionLiveData = calculatorViewModel.getCalculationExpression(context)
 
-        assertEquals(EMPTY_STRING, calculationExpressionLiveData.value)
+        assertEquals("", calculationExpressionLiveData.value)
     }
 
     @Test

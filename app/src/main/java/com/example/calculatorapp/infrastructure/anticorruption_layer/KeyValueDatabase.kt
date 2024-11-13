@@ -7,14 +7,14 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.calculatorapp.constants.ApplicationConstants.Companion.APPLICATION_SHARED_PREFERENCES_NAME
+import com.example.calculatorapp.constants.ApplicationConstants.Companion.APPLICATION_KEY_VALUE_DATABASE_NAME
 import com.example.calculatorapp.infrastructure.exceptions.NotExistingKeyException
 import com.example.calculatorapp.infrastructure.specifications.isRetrievedValueEqualToNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(
-    APPLICATION_SHARED_PREFERENCES_NAME
+    APPLICATION_KEY_VALUE_DATABASE_NAME
 )
 
 class KeyValueDatabase {

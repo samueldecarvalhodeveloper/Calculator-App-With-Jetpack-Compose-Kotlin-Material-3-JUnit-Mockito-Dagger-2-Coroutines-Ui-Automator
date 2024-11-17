@@ -1,4 +1,4 @@
-package com.example.calculatorapp.dependencies_injection
+package com.example.calculatorapp.dependency_injection
 
 import com.example.calculatorapp.domains.calculator.CalculationExpressionActiveRecord
 import com.example.calculatorapp.domains.calculator.CalculationExpressionActiveRecordDecorator

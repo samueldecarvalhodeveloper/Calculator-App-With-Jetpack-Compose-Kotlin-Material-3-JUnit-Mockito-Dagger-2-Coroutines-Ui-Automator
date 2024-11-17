@@ -1,4 +1,4 @@
-package com.example.calculatorapp.dependencies_injection
+package com.example.calculatorapp.dependency_injection
 
 import android.content.Context
 import com.example.calculatorapp.calculation_expression_store.CalculationExpressionStore.Companion.getStoredCalculationExpression

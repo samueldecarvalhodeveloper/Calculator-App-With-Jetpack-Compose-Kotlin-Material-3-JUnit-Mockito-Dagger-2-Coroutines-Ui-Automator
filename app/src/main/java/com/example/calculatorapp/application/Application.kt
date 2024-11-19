@@ -9,7 +9,10 @@ import com.example.calculatorapp.view_models.CalculatorViewModel
 import com.example.calculatorapp.view_models.ThemeModeViewModel
 
 @Composable
-fun Application(calculatorViewModel: CalculatorViewModel, themeModeViewModel: ThemeModeViewModel) {
+fun Application(
+    calculatorViewModel: CalculatorViewModel,
+    themeModeViewModel: ThemeModeViewModel
+) {
     val context = LocalContext.current
 
     val themeMode = themeModeViewModel.getThemeMode(context = context)

@@ -1,8 +1,6 @@
 package com.example.calculatorapp.domains.calculator
 
-import javax.inject.Inject
-
-class CalculationExpressionRegister @Inject constructor(
+class CalculationExpressionRegister(
     private val calculationExpression: CalculationExpression
 ) {
     fun getCalculationExpression(): String {

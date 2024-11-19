@@ -9,13 +9,9 @@ import com.example.calculatorapp.calculation_expression_store.CalculationExpress
 import com.example.calculatorapp.domains.calculator.Calculator
 import com.example.calculatorapp.domains.calculator.CalculatorCharacters
 import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionNotValidExpressionExceptionMessage
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-open class CalculatorViewModel @Inject constructor(private val calculator: Calculator) :
-    ViewModel() {
+open class CalculatorViewModel(private val calculator: Calculator) : ViewModel() {
     private val calculationExpression: MutableLiveData<String>
 
     init {
@@ -42,10 +38,8 @@ open class CalculatorViewModel @Inject constructor(private val calculator: Calcu
             val currentCalculationExpression = calculator.getCalculationExpression()
 
             calculationExpression.value = currentCalculationExpression
-            setStoredCalculationExpression(
-                currentCalculationExpression,
-                context
-            )
+
+            setStoredCalculationExpression(currentCalculationExpression, context)
         }
     }
 
@@ -56,10 +50,8 @@ open class CalculatorViewModel @Inject constructor(private val calculator: Calcu
             val currentCalculationExpression = calculator.getCalculationExpression()
 
             calculationExpression.value = currentCalculationExpression
-            setStoredCalculationExpression(
-                currentCalculationExpression,
-                context
-            )
+
+            setStoredCalculationExpression(currentCalculationExpression, context)
         }
     }
 
@@ -70,10 +62,8 @@ open class CalculatorViewModel @Inject constructor(private val calculator: Calcu
             val currentCalculationExpression = calculator.getCalculationExpression()
 
             calculationExpression.value = currentCalculationExpression
-            setStoredCalculationExpression(
-                currentCalculationExpression,
-                context
-            )
+            
+            setStoredCalculationExpression(currentCalculationExpression, context)
         }
     }
 
@@ -89,10 +79,7 @@ open class CalculatorViewModel @Inject constructor(private val calculator: Calcu
                     )
                 ) context.getString(R.string.not_valid_expression_message) else currentCalculationExpression
 
-            setStoredCalculationExpression(
-                currentCalculationExpression,
-                context
-            )
+            setStoredCalculationExpression(currentCalculationExpression, context)
         }
     }
 }

@@ -1,12 +1,8 @@
 package com.example.calculatorapp.domains.calculator
 
 import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionEmpty
-import javax.inject.Inject
-import javax.inject.Singleton
 
-
-@Singleton
-class Calculator @Inject constructor(private val calculatorExpressionActiveRecord: CalculationExpressionActiveRecord) {
+class Calculator(private val calculatorExpressionActiveRecord: CalculationExpressionActiveRecord) {
     fun getCalculationExpression(): String {
         return calculatorExpressionActiveRecord.getCalculationExpression()
     }

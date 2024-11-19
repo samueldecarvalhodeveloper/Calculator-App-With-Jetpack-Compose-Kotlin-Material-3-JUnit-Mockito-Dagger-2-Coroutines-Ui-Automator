@@ -1,7 +1,7 @@
 ![](./thumbnail.jpg)
 
 <h1 align="center">
-Calculator App With Jetpack Compose, Kotlin, Material 3, JUnit, Mockito, Dagger 2, Coroutines, Ui Automator 2
+Calculator App With Jetpack Compose, Kotlin, Material 3, JUnit, Mockito, Kotlin koin, Coroutines, Ui Automator 2
 </h1>
 
 <br/>
@@ -21,7 +21,7 @@ Calculator App With Jetpack Compose, Kotlin, Material 3, JUnit, Mockito, Dagger 
 
 <br />
 
-<h3 id="technologies">🚀 Technologies:</h3>
+<h3 id="technologies">🚀 Technologies:</h3>
 
 <p>To build this project is used:</p>
 
@@ -33,8 +33,7 @@ Calculator App With Jetpack Compose, Kotlin, Material 3, JUnit, Mockito, Dagger 
 - Composition Local
 - Local Api
 - Mockito
-- Dagger 2
-- Android Hilt
+- Kotlin koin
 - Data Store
 - Gradle (Kotlin DSL)
 - View Model
@@ -57,7 +56,7 @@ See more:
 
 <br />
 
-<h3 id="contact">✉️ Contact:</h3>
+<h3 id="contact">✉️ Contact:</h3>
 
 **Email:**
 <a href="mailto:personal.samuelcarvalho@gmail.com">personal.samuelcarvalho@gmail.com</a>

@@ -4,12 +4,9 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.calculatorapp.user_interface_theme_store.UserInterfaceThemeStore
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.runBlocking
-import javax.inject.Inject
 
-@HiltViewModel
-open class ThemeModeViewModel @Inject constructor() : ViewModel() {
+open class ThemeModeViewModel : ViewModel() {
     private var themeMode = MutableLiveData<Boolean>()
 
     open fun getThemeMode(context: Context): MutableLiveData<Boolean> {

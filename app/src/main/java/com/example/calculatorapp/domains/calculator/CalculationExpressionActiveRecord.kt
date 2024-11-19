@@ -1,6 +1,6 @@
 package com.example.calculatorapp.domains.calculator
 
-import com.example.calculatorapp.domains.calculator.infrastructure.anticorruption_layer.ExpressionEvaluater.Companion.getEvaluatedCalculationExpression
+import com.example.calculatorapp.domains.calculator.infrastructure.anticorruption_layer.ExpressionEvaluator.Companion.getEvaluatedCalculationExpression
 import com.example.calculatorapp.domains.calculator.infrastructure.formatters.CalculatorFormatter.Companion.getCalculationExpressionWithoutLastCharacter
 
 open class CalculationExpressionActiveRecord(private val calculationExpressionRegister: CalculationExpressionRegister) {

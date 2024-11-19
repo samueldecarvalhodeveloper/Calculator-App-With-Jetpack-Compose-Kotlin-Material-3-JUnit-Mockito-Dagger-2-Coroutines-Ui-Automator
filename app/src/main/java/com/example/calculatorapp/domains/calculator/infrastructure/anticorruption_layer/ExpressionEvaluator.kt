@@ -4,7 +4,7 @@ import com.example.calculatorapp.constants.domains.CalculatorConstants.Companion
 import com.example.calculatorapp.domains.calculator.infrastructure.specifications.CalculatorSpecifications.isCalculationExpressionRationalNumber
 import net.objecthunter.exp4j.ExpressionBuilder
 
-class ExpressionEvaluater {
+class ExpressionEvaluator {
     companion object {
         fun getEvaluatedCalculationExpression(calculationExpression: String): String {
             try {

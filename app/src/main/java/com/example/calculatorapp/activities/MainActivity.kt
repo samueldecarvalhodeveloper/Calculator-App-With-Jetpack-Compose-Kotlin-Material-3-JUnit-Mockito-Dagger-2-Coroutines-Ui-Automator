@@ -4,23 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.lifecycle.ViewModelProvider
 import com.example.calculatorapp.application.Application
+import com.example.calculatorapp.calculation_expression_store.CalculationExpressionStore
 import com.example.calculatorapp.view_models.CalculatorViewModel
 import com.example.calculatorapp.view_models.ThemeModeViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         enableEdgeToEdge()
 
-        val calculatorViewModel =
-            ViewModelProvider(this)[CalculatorViewModel::class.java]
-        val themeModeViewModel =
-            ViewModelProvider(this)[ThemeModeViewModel::class.java]
+        val lastSessionCalculationExpression =
+            CalculationExpressionStore.getStoredCalculationExpression(applicationContext)
+
+        val calculatorViewModel: CalculatorViewModel
+                by viewModel { parametersOf(lastSessionCalculationExpression) }
+        val themeModeViewModel: ThemeModeViewModel by viewModel()
 
         setContent {
             Application(calculatorViewModel, themeModeViewModel)

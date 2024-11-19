@@ -7,15 +7,12 @@ import com.example.calculatorapp.domains.calculator.CalculatorCharacters
 import com.example.calculatorapp.view_models.CalculatorViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.BeforeClass
 import org.junit.Test
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.`when`
 
 class CalculatorViewModelTest {
-    val context = mock(Context::class.java)
-    val calculatorViewModel = mock(CalculatorViewModel::class.java)
-    val calculationExpression = mock(MutableLiveData::class.java) as MutableLiveData<String>
-
     @Before
     fun beforeEach() {
         `when`(calculatorViewModel.getCalculationExpression(context)).thenReturn(
@@ -82,5 +79,19 @@ class CalculatorViewModelTest {
         val calculationExpressionLiveData = calculatorViewModel.getCalculationExpression(context)
 
         assertEquals(EVALUATED_SIMPLE_CALCULATION_EXPRESSION, calculationExpressionLiveData.value)
+    }
+
+    companion object {
+        private lateinit var context: Context
+        private lateinit var calculatorViewModel: CalculatorViewModel
+        private lateinit var calculationExpression: MutableLiveData<String>
+
+        @JvmStatic
+        @BeforeClass
+        fun beforeAll() {
+            context = mock(Context::class.java)
+            calculatorViewModel = mock(CalculatorViewModel::class.java)
+            calculationExpression = mock(MutableLiveData::class.java) as MutableLiveData<String>
+        }
     }
 }

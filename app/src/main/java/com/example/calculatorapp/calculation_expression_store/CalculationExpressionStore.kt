@@ -8,25 +8,17 @@ import kotlinx.coroutines.runBlocking
 
 class CalculationExpressionStore {
     companion object {
-        fun getStoredCalculationExpression(context: Context): String {
+        suspend fun getStoredCalculationExpression(context: Context): String {
             try {
-                lateinit var storedCalculationExpression: String
-
-                runBlocking {
-                    storedCalculationExpression = KeyValueDatabase.getStringValue(
-                        LAST_SESSION_CALCULATION_EXPRESSION_KEY,
-                        context
-                    )
-                }
-
-                return storedCalculationExpression
+                return KeyValueDatabase.getStringValue(
+                    LAST_SESSION_CALCULATION_EXPRESSION_KEY,
+                    context
+                )
             } catch (exception: NotExistingKeyException) {
-                runBlocking {
-                    KeyValueDatabase.setStringValue(
-                        LAST_SESSION_CALCULATION_EXPRESSION_KEY, "",
-                        context
-                    )
-                }
+                KeyValueDatabase.setStringValue(
+                    LAST_SESSION_CALCULATION_EXPRESSION_KEY, "",
+                    context
+                )
 
                 return ""
             }

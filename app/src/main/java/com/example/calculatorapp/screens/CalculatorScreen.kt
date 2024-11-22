@@ -29,7 +29,6 @@ fun CalculatorScreen(
     calculatorViewModel: CalculatorViewModel,
     themeModeViewModel: ThemeModeViewModel
 ) {
-
     val context = LocalContext.current
 
     val calculationExpression = calculatorViewModel

@@ -8,6 +8,8 @@ import org.junit.Assert.assertEquals
 import org.junit.BeforeClass
 import org.junit.Test
 import org.mockito.Mockito
+import org.mockito.Mockito.mock
+import org.mockito.Mockito.`when`
 
 class CalculationExpressionStoreTest {
     @Test
@@ -26,12 +28,14 @@ class CalculationExpressionStoreTest {
     }
 
     companion object {
-        val context: Context = Mockito.mock(Context::class.java)
+        lateinit var context: Context
 
         @JvmStatic
         @BeforeClass
         fun beforeAll() {
-            Mockito.`when`(context.applicationContext).thenReturn(context)
+            context = mock(Context::class.java)
+
+            `when`(context.applicationContext).thenReturn(context)
         }
     }
 }

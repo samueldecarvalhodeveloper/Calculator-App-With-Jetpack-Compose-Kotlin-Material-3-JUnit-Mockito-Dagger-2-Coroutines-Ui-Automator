@@ -32,12 +32,15 @@ class ThemeModeViewModelTest {
     }
 
     companion object {
-        val context = mock(Context::class.java)
-        val themeModeViewModel = mock(ThemeModeViewModel::class.java)
+        lateinit var context: Context
+        lateinit var themeModeViewModel: ThemeModeViewModel
 
         @JvmStatic
         @BeforeClass
         fun beforeAll() {
+            context = mock(Context::class.java)
+            themeModeViewModel = mock(ThemeModeViewModel::class.java)
+
             `when`(themeModeViewModel.getThemeMode(context = context)).thenReturn(
                 MutableLiveData(true)
             )

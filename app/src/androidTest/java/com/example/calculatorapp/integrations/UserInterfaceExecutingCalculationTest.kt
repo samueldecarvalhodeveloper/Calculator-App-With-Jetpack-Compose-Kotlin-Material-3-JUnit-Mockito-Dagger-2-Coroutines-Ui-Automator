@@ -1,5 +1,6 @@
 package com.example.calculatorapp.integrations
 
+import android.content.Context
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.UiDevice
@@ -12,11 +13,14 @@ import org.junit.Before
 import org.junit.Test
 
 class UserInterfaceExecutingCalculationTest {
-    private val context = InstrumentationRegistry.getInstrumentation().targetContext
+    private lateinit var context: Context
 
     @Before
     fun beforeEach() {
+        context = InstrumentationRegistry.getInstrumentation().targetContext
+
         device.pressHome()
+
         val appName = context.getString(R.string.app_name)
         val appIconElement = device.findObject(By.text(appName))
 

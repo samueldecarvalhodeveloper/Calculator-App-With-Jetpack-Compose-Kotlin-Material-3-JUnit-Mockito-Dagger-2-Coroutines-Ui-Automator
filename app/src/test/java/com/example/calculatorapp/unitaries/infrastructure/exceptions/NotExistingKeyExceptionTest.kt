@@ -4,6 +4,7 @@ import com.example.calculatorapp.constants.LAST_SESSION_CALCULATION_EXPRESSION_K
 import com.example.calculatorapp.constants.NOT_EXISTING_KEY_EXCEPTION_MESSAGE
 import com.example.calculatorapp.infrastructure.exceptions.NotExistingKeyException
 import org.junit.Assert
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class NotExistingKeyExceptionTest {
@@ -14,10 +15,11 @@ class NotExistingKeyExceptionTest {
         } catch (exception: Exception) {
             val exceptionMessage = exception.message
 
-            Assert.assertEquals(
+            assertEquals(
                 NOT_EXISTING_KEY_EXCEPTION_MESSAGE(
                     LAST_SESSION_CALCULATION_EXPRESSION_KEY
-                ), exceptionMessage
+                ),
+                exceptionMessage
             )
         }
     }

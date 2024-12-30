@@ -20,8 +20,8 @@ import com.example.calculatorapp.view_models.CalculatorViewModel
 import com.example.calculatorapp.view_models.ThemeModeViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.Rule
@@ -30,8 +30,6 @@ import org.junit.Test
 class CalculatorScreen {
     @get:Rule
     val composeTestRule = createComposeRule()
-
-    private val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
 
     @Before
     fun beforeEach() {
@@ -69,6 +67,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.ONE.value).performClick()
@@ -82,6 +81,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.TWO.value).performClick()
@@ -95,6 +95,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.THREE.value).performClick()
@@ -108,6 +109,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.FOUR.value).performClick()
@@ -121,6 +123,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.FIVE.value).performClick()
@@ -134,6 +137,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.SIX.value).performClick()
@@ -147,6 +151,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.SEVEN.value).performClick()
@@ -160,6 +165,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.EIGHT.value).performClick()
@@ -173,6 +179,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.NINE.value).performClick()
@@ -220,6 +227,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.SUBTRACTION.value)
@@ -236,6 +244,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.MULTIPLICATION.value)
@@ -252,6 +261,7 @@ class CalculatorScreen {
                 calculationExpressionLiveData.value
             )
         }
+
         calculationViewModel.clean(context)
 
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.DIVISION.value)
@@ -325,22 +335,27 @@ class CalculatorScreen {
         runBlocking {
             val nightThemeState = UserInterfaceThemeStore.getNightModeThemeState(context)
 
-            Assert.assertTrue(nightThemeState)
+            assertTrue(nightThemeState)
         }
     }
 
     companion object {
+        private lateinit var context: Context
+
         private lateinit var calculationViewModel: CalculatorViewModel
         private lateinit var themeModeViewModel: ThemeModeViewModel
 
         @BeforeClass
         @JvmStatic
         fun beforeAll() {
+            context = InstrumentationRegistry.getInstrumentation().targetContext
+
             val calculationExpression = CalculationExpression("")
             val calculationExpressionRegister = CalculationExpressionRegister(calculationExpression)
             val calculationExpressionActiveRecord =
                 CalculationExpressionActiveRecordDecorator(calculationExpressionRegister)
             val calculator = Calculator(calculationExpressionActiveRecord)
+
             calculationViewModel = CalculatorViewModel(calculator)
             themeModeViewModel = ThemeModeViewModel()
         }

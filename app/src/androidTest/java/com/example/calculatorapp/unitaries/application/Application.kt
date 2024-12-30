@@ -17,7 +17,7 @@ import com.example.calculatorapp.user_interface_calculator_characters.UserInterf
 import com.example.calculatorapp.user_interface_theme_store.UserInterfaceThemeStore
 import com.example.calculatorapp.view_models.CalculatorViewModel
 import com.example.calculatorapp.view_models.ThemeModeViewModel
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.BeforeClass
@@ -42,7 +42,6 @@ class Application {
         val actionbarMenuToggleNightModeContentDescription =
             context.getString(R.string.actionbar_menu_toggle_night_mode_content_description)
 
-
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.ONE.value).performClick()
         composeTestRule.onNodeWithText(UserInterfaceCalculatorCharacters.ADDITION.value)
             .performClick()
@@ -53,7 +52,7 @@ class Application {
         composeTestRule.onNodeWithContentDescription(actionbarMenuToggleNightModeContentDescription)
             .performClick()
 
-        runBlocking {
+        runTest {
             val nightThemeState = UserInterfaceThemeStore.getNightModeThemeState(context)
 
             assertTrue(nightThemeState)

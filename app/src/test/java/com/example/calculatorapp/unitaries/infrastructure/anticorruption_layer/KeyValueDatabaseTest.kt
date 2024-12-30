@@ -42,11 +42,13 @@ class KeyValueDatabaseTest {
     }
 
     companion object {
-        val context: Context = mock(Context::class.java)
+        lateinit var context: Context
 
         @JvmStatic
         @BeforeClass
         fun beforeAll() {
+            context = mock(Context::class.java)
+
             `when`(context.applicationContext).thenReturn(context)
         }
     }
